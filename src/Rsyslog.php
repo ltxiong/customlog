@@ -2,11 +2,18 @@
 
 namespace Ltxiong\CustomLog;
 
-// test
 
 /**
  * @desc 远程写 rsyslog 日志类
  * @example
+ * 
+ * use Ltxiong\CustomLog\Rsyslog;
+ * 
+ * $log_id_arr = array(1000001 => 'BLOG_HYPERF_TT', 1000002 => 'BLOG_FIND_YY',);
+ * $message = json_encode($data);
+ * $rsyslog_instance = new Rsyslog('133.10.0.11', 2514, $log_id_arr);
+ * $send_rs = $rsyslog_instance->Send($message, 1000001);
+ * 
  */
 class Rsyslog
 {
@@ -139,7 +146,7 @@ class Rsyslog
         $errno = "";
         $errstr = "";
         // 打开套接字描述符 
-        $fp = fsockopen("$socket_transport://" . $this->_host, $this->_port, $errno, $errstr, $this->_timeout);
+        $fp = @fsockopen("$socket_transport://" . $this->_host, $this->_port, $errno, $errstr, $this->_timeout);
         if ($fp) {
             // 发送消息
             fwrite($fp, $message);
@@ -151,3 +158,11 @@ class Rsyslog
     }
 
 }
+
+/**
+ * 
+ *         $log_id_arr = array(1000001 => 'BLOG_HYPERF_TT', 1000002 => 'BLOG_FIND_YY',);
+        $message = json_encode($data);
+        $rsyslog_instance = new Rsyslog('133.10.0.11', 2514, $log_id_arr);
+        $send_rs = $rsyslog_instance->Send($message, 1000001);
+ */
