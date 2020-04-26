@@ -1,7 +1,7 @@
 {
     "name": "ltxiong/customlog",
     "description": "自定义log类",
-    "license": "MIT",
+    "license": "none",
     "keywords": [
         "php",
         "rsyslog",

@@ -2,6 +2,7 @@
 
 namespace Ltxiong\CustomLog;
 
+// test
 
 /**
  * @desc 远程写 rsyslog 日志类
