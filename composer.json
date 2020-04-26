@@ -1,12 +1,11 @@
 {
-    "name": "ltxiong/remotelog",
-    "description": "自定义的log类",
+    "name": "ltxiong/customlog",
+    "description": "自定义log类",
     "license": "MIT",
     "keywords": [
         "php",
         "rsyslog",
-        "log",
-        "remote log"
+        "log"
     ],
     "authors": [
         {
@@ -19,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ltxiong\\RemoteLog\\": "./src/"
+            "Ltxiong\\CustomLog\\": "./src/"
         }
     }
 }

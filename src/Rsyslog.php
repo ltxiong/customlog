@@ -1,6 +1,6 @@
 <?php
 
-namespace Ltxiong\RemoteLog;
+namespace Ltxiong\CustomLog;
 
 
 /**
