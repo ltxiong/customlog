@@ -1,12 +1,18 @@
 {
     "name": "ltxiong/customlog/",
     "description": "自定义的log类",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "rsyslog",
+        "log"
+    ],
     "authors": [
         {
-            "name": "ltxiong"
+            "name": "ltxiong",
+            "email": "ltx851201@yeah.net"
         }
     ],
-    "license": "MIT",
     "require": {
         "php": ">=5.4"
     },
