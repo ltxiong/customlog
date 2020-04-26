@@ -1,6 +1,7 @@
 <?php
 
 namespace Ltxiong\CustomLog;
+//namespace CustomLog;
 
 /**
  * @desc 远程写 rsyslog 日志类
