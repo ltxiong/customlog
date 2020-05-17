@@ -4,14 +4,14 @@ namespace Ltxiong\CustomLog;
 
 
 /**
- * @desc 远程写 rsyslog 日志类
+ * @desc 远程写 rsyslog 日志类 使用示例 TESTLOG|APILOG|SERVICELOG
  * @example
  * 
  * use Ltxiong\CustomLog\Rsyslog;
  * 
- * $log_id_arr = array(1000001 => 'BLOG_HYPERF_TT', 1000002 => 'BLOG_FIND_YY',);
+ * $log_id_arr = array(1000001 => 'TESTLOG_HYPERF_TT', 1000002 => 'APILOG_FIND_YY', 1000003 => 'SERVICELOG_FIND_YY',);
  * $message = json_encode($data);
- * $rsyslog_instance = new Rsyslog('133.10.0.11', 2514, $log_id_arr);
+ * $rsyslog_instance = new Rsyslog('133.10.0.11', 19858, $log_id_arr);
  * $send_rs = $rsyslog_instance->Send($message, 1000001);
  * 
  */
