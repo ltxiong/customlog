@@ -4,7 +4,7 @@ namespace Ltxiong\CustomLog;
 
 
 /**
- * @desc 远程写 rsyslog 日志类 使用示例 TESTLOG|APILOG|SERVICELOG
+ * @desc 远程写 rsyslog 日志类，单次发送最大可发送4K数据 使用示例 TESTLOG|APILOG|SERVICELOG
  * @example
  * 
  * use Ltxiong\CustomLog\Rsyslog;
@@ -51,9 +51,9 @@ class Rsyslog
     private $_msg_default_len = 1024;
 
     /**
-     * 消息最大长度(字节数 1024 * 3)
+     * 消息最大长度(字节数 1024 * 4)
      */
-    private $_msg_max_len = 3072;
+    private $_msg_max_len = 4096;
 
 	/**
 	 * 
