@@ -103,8 +103,8 @@ class Rsyslog
 		// 毫秒时间戳
         $log_send_time = intval(microtime(true) * 1000);
         // 消息最前面带空格，要么消息最前面带上<>开头和结尾的特殊字符，
-        // 例如： <190>Apr BLOG_LTX3_KKK 1xxxxxxxxxx 22020/04/20/11:32:43，实际消息内容为 1xxxxxxxxxx 22020/04/20/11:32:43
-        $message = substr("<190>" . date("F j Y g:i a") . " $msg_prefix $log_send_time $message", 0, $msg_len);
+        // 例如： <PHP RSYSLOG>Apr BLOG_LTX3_KKK 1xxxxxxxxxx 22020/04/20/11:32:43，实际消息内容为 1xxxxxxxxxx 22020/04/20/11:32:43
+        $message = substr("<PHP RSYSLOG>" . date("F j Y g:i a") . " $msg_prefix $log_send_time $message", 0, $msg_len);
         return $message;
     }
 
@@ -160,9 +160,10 @@ class Rsyslog
 }
 
 /**
+ * // 使用示例 TESTLOG|APILOG|SERVICELOG
+ * $log_id_arr = array(1000001 => 'TESTLOG_HYPERF_TT', 1000002 => 'APILOG_FIND_YY', 1000003 => 'SERVICELOG_FIND_YY',);
+ * $message = json_encode($data);
+ * $rsyslog_instance = new Rsyslog('133.10.0.11', 19858, $log_id_arr);
+ * $send_rs = $rsyslog_instance->Send($message, 1000001);
  * 
- *         $log_id_arr = array(1000001 => 'BLOG_HYPERF_TT', 1000002 => 'BLOG_FIND_YY',);
-        $message = json_encode($data);
-        $rsyslog_instance = new Rsyslog('133.10.0.11', 2514, $log_id_arr);
-        $send_rs = $rsyslog_instance->Send($message, 1000001);
  */
