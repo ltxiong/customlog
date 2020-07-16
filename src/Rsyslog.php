@@ -109,10 +109,10 @@ class Rsyslog
         }
         $msg_len = intval($msg_len);
         $msg_len = $msg_len > $this->_msg_max_len ? $this->_msg_max_len : ($msg_len < 0 ? $this->_msg_default_len : $msg_len);
-		// 毫秒时间戳 
+		//  毫秒时间戳 
         //$log_send_time = intval(microtime(true) * 1000);
-        $time_arr = explode(".", number_format(microtime(true), 3));
-        $log_send_time = date("YmdHms", intval($time_arr[0])) . '|' . $time_arr[1];
+        $time_arr = explode(".", number_format('' . microtime(true), 3));
+        $log_send_time = date("YmdHms", $time_arr[0]) . '|' . $time_arr[1];
         // 消息最前面带空格，要么消息最前面带上<>开头和结尾的特殊字符，
         // 例如： <PHP RSYSLOG>Apr BLOG_LTX3_KKK 1xxxxxxxxxx 22020/04/20/11:32:43，实际消息内容为 1xxxxxxxxxx 22020/04/20/11:32:43
         $message = substr($message, 0, $msg_len);
