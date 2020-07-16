@@ -116,7 +116,7 @@ class Rsyslog
         // 消息最前面带空格，要么消息最前面带上<>开头和结尾的特殊字符，
         // 例如： <PHP RSYSLOG>Apr BLOG_LTX3_KKK 1xxxxxxxxxx 22020/04/20/11:32:43，实际消息内容为 1xxxxxxxxxx 22020/04/20/11:32:43
         $message = substr($message, 0, $msg_len);
-        $message = "<PHP RSYSLOG> log $msg_prefix $log_send_time|orig_msg|$message";
+        $message = "<PHP RSYSLOG> log $msg_prefix $log_send_time|origin_msg|$message";
         return $message;
     }
 
