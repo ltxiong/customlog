@@ -112,7 +112,7 @@ class Rsyslog
 		// 毫秒时间戳
         //$log_send_time = intval(microtime(true) * 1000);
         $log_time_arr = explode(".", microtime(true));
-        $log_send_time = $log_time_arr[0] . '|' . $log_time_arr[1];
+        $log_send_time = date("YmdHms", $log_time_arr[0]) . '|' . $log_time_arr[1];
         // 消息最前面带空格，要么消息最前面带上<>开头和结尾的特殊字符，
         // 例如： <PHP RSYSLOG>Apr BLOG_LTX3_KKK 1xxxxxxxxxx 22020/04/20/11:32:43，实际消息内容为 1xxxxxxxxxx 22020/04/20/11:32:43
         $message = substr($message, 0, $msg_len);
