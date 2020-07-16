@@ -146,7 +146,7 @@ class Rsyslog
      */
     public function Send($message, $log_id, $msg_len = 1024, $socket_transport = 'tcp')
     {
-		if (empty($message))
+		if(empty($message) || !is_string($message))
 		{
 			return false;
         }
