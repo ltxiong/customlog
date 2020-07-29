@@ -41,7 +41,7 @@ class Rsyslog
      * @var int
      * @access private
      */
-    private $_timeout = 1;
+    private $_timeout = 2;
 
     /**
      * 数据存储是以“字节”(Byte)为单位，数据传输大多是以“位”(bit，又名“比特”)为单位，一个位就代表一个0或1
