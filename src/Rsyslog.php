@@ -163,17 +163,27 @@ class Rsyslog
         }
         // 对消息内容进行处理
         $message = $this->ProcessMessage($message, $msg_prefix, $msg_len);
-
-        $errno = "";
-        $errstr = "";
-        // 打开套接字描述符 
-        $fp = @fsockopen("$socket_transport://" . $this->_host, $this->_port, $errno, $errstr, $this->_timeout);
-        if ($fp) {
-            // 发送消息
-            fwrite($fp, $message);
-            // 关闭连接
-            fclose($fp);
+        try
+        {
+            $errno = "";
+            $errstr = "";
+            // 打开套接字描述符 
+            $fp = @fsockopen("$socket_transport://" . $this->_host, $this->_port, $errno, $errstr, $this->_timeout);
+            if ($fp) {
+                // 发送消息
+                fwrite($fp, $message);
+            }
             return true;
+        }
+        catch(Exception $e)
+        {
+            // 此处最好能够加一些日志，记录错误输出， $errno, $errstr 可以在此输出
+            
+        }
+        finally
+        {
+            // return 之前会先关闭连接
+            fclose($fp);
         }
         return false;
     }
