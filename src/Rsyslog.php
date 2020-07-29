@@ -183,7 +183,10 @@ class Rsyslog
         finally
         {
             // return 之前会先关闭连接
-            fclose($fp);
+            if(!is_bool($fp))
+            {
+                fclose($fp);
+            }
         }
         return false;
     }
